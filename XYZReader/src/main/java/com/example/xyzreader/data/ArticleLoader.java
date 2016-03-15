@@ -1,7 +1,7 @@
 package com.example.xyzreader.data;
 
 import android.content.Context;
-import android.content.CursorLoader;
+import android.support.v4.content.CursorLoader;
 import android.net.Uri;
 
 /**
@@ -14,6 +14,10 @@ public class ArticleLoader extends CursorLoader {
 
     public static ArticleLoader newInstanceForItemId(Context context, long itemId) {
         return new ArticleLoader(context, ItemsContract.Items.buildItemUri(itemId));
+    }
+
+    public static ArticleLoader newInstanceForItemUri(Context context, Uri uri) {
+        return new ArticleLoader(context, uri);
     }
 
     private ArticleLoader(Context context, Uri uri) {
