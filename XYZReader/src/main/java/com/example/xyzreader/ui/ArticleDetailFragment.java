@@ -1,6 +1,7 @@
 package com.example.xyzreader.ui;
 
 import android.net.Uri;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.content.Intent;
@@ -13,7 +14,10 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
@@ -58,6 +62,7 @@ public class ArticleDetailFragment extends Fragment implements
     private int mScrollY;
     private boolean mIsCard = false;
     private int mStatusBarFullOpacityBottom;
+    private AppCompatActivity mActivity;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -148,6 +153,17 @@ public class ArticleDetailFragment extends Fragment implements
 //                        .getIntent(), getString(R.string.action_share)));
 //            }
 //        });
+        mActivity = (AppCompatActivity)getActivity();
+        Toolbar toolbar = (Toolbar) mRootView.findViewById(R.id.toolbar);
+        mActivity.setSupportActionBar(toolbar);
+        if(toolbar != null) {
+            mActivity.getSupportActionBar().setDisplayShowTitleEnabled(true);
+            mActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+//            collapsingToolbarLayout.setCollapsedTitleTextColor(Color.rgb(0, 0, 0));
+        }
+        CollapsingToolbarLayout collapsingTB = (CollapsingToolbarLayout) mRootView.findViewById(R.id.toolbar_container);
+        collapsingTB.setExpandedTitleColor(getResources().getColor(R.color.transparent));
 
         bindViews();
         updateStatusBar();
@@ -195,6 +211,8 @@ public class ArticleDetailFragment extends Fragment implements
         bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
 
         if (mCursor != null) {
+
+            mActivity.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
             mRootView.setAlpha(0);
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
