@@ -11,12 +11,10 @@
             android:id="@+id/toolbar_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:background="@color/primary"
-            android:elevation="0dp">
+            android:theme="@style/Theme.Bacon.Toolbar"
+            android:background="@color/primary">
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 android:layout_marginLeft="@dimen/list_toolbar_side_margin"
                 android:layout_marginRight="@dimen/list_toolbar_side_margin"
                 android:layout_width="match_parent"

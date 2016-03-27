@@ -8,7 +8,8 @@
 
     <!--suppress AndroidLintContentDescription -->
     <com.example.xyzreader.ui.DynamicHeightNetworkImageView
-        android:id="@+id/thumbnail"
+        android:transitionName="photo"
+        android:id="@+id/photo"
         android:layout_width="0dp"
         android:adjustViewBounds="true"
         android:gravity="center_horizontal"
@@ -18,16 +19,15 @@
 
     <TextView
         android:id="@+id/article_title"
-        style="@style/TextAppearance.AppCompat.Subhead"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
         android:padding="@dimen/abc_list_item_padding_horizontal_material"
-        android:textColor="@color/ltgray"
         android:layout_width="0dp"
         app:layout_columnWeight="2"
         android:maxLines="4" />
 
     <TextView
         android:id="@+id/article_subtitle"
-        style="@style/TextAppearance.AppCompat.Body1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:paddingLeft="@dimen/abc_list_item_padding_horizontal_material"
         android:paddingRight="@dimen/abc_list_item_padding_horizontal_material"
         android:paddingBottom="@dimen/abc_list_item_padding_horizontal_material"
