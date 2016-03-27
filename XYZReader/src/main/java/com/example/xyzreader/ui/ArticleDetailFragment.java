@@ -144,26 +144,27 @@ public class ArticleDetailFragment extends Fragment implements
 
 //        mStatusBarColorDrawable = new ColorDrawable(0);
 
-//        mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
-//                        .setType("text/plain")
-//                        .setText("Some sample text")
-//                        .getIntent(), getString(R.string.action_share)));
-//            }
-//        });
+        //TODO: Is share setted up correctly?
+        mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
+                        .setType("text/plain")
+                        .setText("Some sample text")
+                        .getIntent(), getString(R.string.action_share)));
+            }
+        });
         mActivity = (AppCompatActivity)getActivity();
         Toolbar toolbar = (Toolbar) mRootView.findViewById(R.id.toolbar);
         mActivity.setSupportActionBar(toolbar);
         if(toolbar != null) {
             mActivity.getSupportActionBar().setDisplayShowTitleEnabled(true);
             mActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-//            collapsingToolbarLayout.setCollapsedTitleTextColor(Color.rgb(0, 0, 0));
         }
         CollapsingToolbarLayout collapsingTB = (CollapsingToolbarLayout) mRootView.findViewById(R.id.toolbar_container);
-        collapsingTB.setExpandedTitleColor(getResources().getColor(R.color.transparent));
+        if(collapsingTB != null) {
+            collapsingTB.setExpandedTitleColor(getResources().getColor(R.color.transparent));
+        }
 
         bindViews();
         updateStatusBar();
