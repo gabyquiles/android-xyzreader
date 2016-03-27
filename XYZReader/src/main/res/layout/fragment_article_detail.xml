@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:contentScrim="@color/primary"
             app:expandedTitleTextAppearance="@android:color/transparent">
 
@@ -81,6 +80,7 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="@dimen/detail_body_top_margin"
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <TextView
@@ -88,16 +88,17 @@
             style="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorLink="@color/theme_accent"
+            android:textColorLink="@color/accent"
             android:textSize="@dimen/detail_body_text_size"
             android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"/>
     </android.support.v4.widget.NestedScrollView>
     <android.support.design.widget.FloatingActionButton
-        app:fabSize="normal"
-        android:layout_gravity="end|bottom"
+        app:fabSize="mini"
+        app:layout_anchor="@+id/app_bar_layout"
+        app:layout_anchorGravity="bottom|right|end"
         app:elevation="@dimen/fab_elevation"
         app:pressedTranslationZ="@dimen/fab_press_translation_z"
-
+        app:backgroundTint="@color/accent"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/share_fab"

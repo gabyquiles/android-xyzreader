@@ -18,7 +18,10 @@
 <resources>
 
     <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
-
+        <!-- Allow shared transitions-->
+        <item name="android:windowContentTransitions">true</item>
+        
+        <item name="android:colorAccent">@color/accent</item>
     </style>
 
     <style name="Theme.Bacon.Detail">
