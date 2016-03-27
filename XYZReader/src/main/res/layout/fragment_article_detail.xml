@@ -8,7 +8,7 @@
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/expanded_toolbar_height"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:theme="@style/Theme.Bacon.Toolbar"
         android:fitsSystemWindows="true">
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_container"
@@ -50,18 +50,16 @@
                         style="?android:attr/textAppearanceLarge"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/detail_title_text_size"
-                        android:lineSpacingMultiplier="0.9" />
-
+                        android:paddingLeft="@dimen/abc_text_size_title_material_toolbar"
+                        android:paddingStart="@dimen/abc_text_size_title_material_toolbar"
+                        android:textSize="@dimen/detail_title_text_size" />
                     <TextView
                         android:id="@+id/article_byline"
                         style="?android:attr/textAppearanceSmall"
+                        android:paddingLeft="@dimen/abc_text_size_subtitle_material_toolbar"
+                        android:paddingStart="@dimen/abc_text_size_subtitle_material_toolbar"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#8fff" />
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
             </FrameLayout>
             <android.support.v7.widget.Toolbar
@@ -80,7 +78,7 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/detail_body_top_margin"
+        android:padding="@dimen/detail_body_top_margin"
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <TextView
